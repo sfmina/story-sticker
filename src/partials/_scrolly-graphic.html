@@ -1,0 +1,271 @@
+<main class="full-width-embed">
+    <div style="height:50vh"></div>
+     <section id="intro">
+      <h2>Montlake headline</h2>
+      
+     </section>
+
+     <section id="scrolly">
+       <div class="sticky-thing">
+         
+         <img decoding="async" class="asset" src="https://projects-staging.seattletimes.com/assets/Montlake_v2_Page_1.jpg">
+         
+         <img decoding="async" class="asset" src="https://projects-staging.seattletimes.com/assets/Montlake_v2_Page_2.jpg">
+         
+         <img decoding="async" class="asset" src="https://projects-staging.seattletimes.com/assets/Montlake_v2_Page_3.jpg">
+         
+         <img decoding="async" class="asset" src="https://projects-staging.seattletimes.com/assets/Montlake_v2_Page_4.jpg">
+
+         <img decoding="async" class="asset" src="https://projects-staging.seattletimes.com/assets/Montlake_v2_Page_5.jpg">
+
+         <img decoding="async" class="asset" src="https://projects-staging.seattletimes.com/assets/Montlake_v2_Page_5.jpg">
+         
+       </div>
+       <article id="scroller">
+         <div class="step" data-step="1"> 
+          
+          <p><strong>1850 </strong>Caption information</p>
+         </div>
+         <div class="step" data-step="2">
+          
+          <p><strong>1900 </strong>Caption information</p>
+         </div>
+         <div class="step" data-step="3">
+          
+          <p><strong>1950 </strong>Caption information</p>
+         </div>
+         <div class="step" data-step="4">
+          
+          <p><strong>2000</strong>Caption information</p>
+         </div>
+         <div class="step" data-step="5">
+          
+          <p><strong>2025 </strong>Caption information</p>
+         </div>
+         <div class="step" data-step="6">
+          
+            <p><strong>2050 </strong>Caption information</p>
+           </div>
+         <div class="step" data-step="7">
+          
+            <p><strong></strong></p>
+           </div>
+       </article>
+
+       
+     </section>
+
+
+     
+   </main>
+
+
+   <style>
+    
+    #scrolly {
+         position: relative;
+         display: -webkit-box;
+         display: -ms-flexbox;
+         display: flex;
+         flex-direction: column;
+         
+         padding: 1rem;
+       }
+  
+       #scrolly > * {
+         -webkit-box-flex: 0;
+         -ms-flex: 0;
+         flex: 0;
+       }
+  
+       main {
+         position: relative;
+         padding: 0 1rem;
+         margin-top:40px;
+         max-width: 100%;
+       }
+  
+       .sticky-thing {
+         position: -webkit-sticky;
+         position: sticky;
+         height: 80vh;
+         width: 50%;
+         /* margin: 0 0 50% 40%; */
+         z-index:-1;
+         top: 5%;
+         
+         /* Center everything inside */
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+  }
+  
+  @media (max-width:768px) {
+    .sticky-thing {        
+        width:100%;
+        margin:0 0 50% 0;
+    }
+        }
+  
+       .sticky-thing p {
+         padding: 1rem;
+         font-size: 8rem;
+         font-weight: 900;
+         color: #fff;
+  
+       }
+  
+       .step {
+         position: relative;
+         margin-left:50%;
+         background-color: white;
+         color: black;
+         width:40%;
+       }
+  
+       @media (max-width:768px) {
+    .step {        
+        width:80%;
+        margin:0 auto;
+    }
+        }
+  
+       .step:first-child {
+         margin-top: 30rem;
+       }
+  
+       .step.is-active {
+         background-color: white;
+         color: #000000;
+       }
+  
+       .step p {
+         text-align: left;
+         padding: 1rem;
+         font-size: 19px;
+         margin-bottom:800px;
+         
+       }
+  
+       .step:last-child {
+         margin-bottom: 0px;
+         background-color: transparent;
+       }
+  
+       span.highlight {
+         background-color: #f2a9d4;
+         padding: 1px 4px 1px 4px;
+         box-decoration-break: clone;
+         -webkit-box-decoration-break: clone;
+         font-weight: bold;
+       }
+    
+       .asset {
+         position:absolute;
+         top:0;
+         left:0;
+         width:100%;
+         opacity:0;
+         animation: fadeOut 0.5s ease-in;
+         
+       }
+  
+       .entered {
+         opacity:1;
+         animation: fadeIn 0.5s ease-in;
+       }
+       @keyframes fadeIn {
+         from {
+           opacity:0;
+         }
+         to {
+           opacity:1;
+         }
+       }
+  
+       @keyframes fadeOut {
+         from {
+           opacity:1;
+         }
+         to {
+           opacity:0;
+         }
+       }
+  
+       #intro {
+         background-color:white;
+         width:50%;
+         margin:0 auto;
+         text-align:center;
+  
+         }
+  
+         @media (max-width: 768px) {
+          #intro {
+          width:80%;
+          }
+        
+       }
+  
+       #outro {
+         background-color:white;
+         height:50vh;
+         
+       }
+     </style>
+   
+
+   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+   <script src="https://projects.seattletimes.com/assets/graphic-scroll.js"></script>
+   <script>
+     
+     var main = document.querySelector("main");
+     var scrolly = main.querySelector("#scrolly");
+     var sticky = scrolly.querySelector(".sticky-thing");
+     var article = scrolly.querySelector("#scroller");
+     var steps = article.querySelectorAll(".step");
+     var photos = sticky.querySelectorAll("img");
+     console.log(photos);
+     
+
+     // initialize the scrollama
+     var scroller = scrollama();
+
+     // scrollama event handlers
+     function handleStepEnter(response) {
+       // response = { element, direction, index }
+       var el = response.element;
+       //console.log(el);
+
+       // remove is-active from all steps
+       // then add is-active to this step
+       steps.forEach(step => step.classList.remove('is-active'));
+       el.classList.add('is-active');
+
+       photos.forEach(photo => photo.classList.remove('entered'));
+       photos[response.index].classList.add('entered');
+
+       // update graphic based on step
+       //sticky.style.backgroundImage = `url(" ${el.dataset.image} ")`;
+
+     }
+
+     function init() {
+       scroller
+         .setup({
+           step: "#scrolly #scroller .step",
+           offset: 0.83,
+           debug: false
+         })
+         .onStepEnter(handleStepEnter);
+
+       // setup resize event
+       window.addEventListener("resize", scroller.resize);
+     }
+
+     // kick things off
+     init();
+   </script>
